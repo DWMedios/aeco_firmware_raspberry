@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import BarcodeScanner from '../../components/barCodeScanner'
 import useTranslate from '../../hooks/useTranslate'
+import { Command } from '../../utils/commands'
 
 const Scanning = () => {
 
@@ -23,12 +24,12 @@ const Scanning = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      sendCommand('J')
+      sendCommand(Command.REFUSED);
       navigation('/unidentified')
     }, 10000)
 
     return () => clearTimeout(timeout)
-  }, [])
+  }, [navigation, sendCommand])
 
   if (loading || error || !metas) {
     return (

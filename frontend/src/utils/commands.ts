@@ -1,0 +1,12 @@
+export const Command = {
+    COMANDO_REV: 'I',
+    REFUSED: 'J',
+    GREEN_LED: 'L',
+    RED_LED: 'T',
+    BLUE_LED: 'U',
+    INITIAL_SETUP_LOCK_ALL: 'YLWDY',
+    FINISH_LOCK_THE_LID: 'XYDB',
+    SEND_ON_ENTER_MORE: 'IBMUB',
+    FINISH_NO_READ_BOTTLE: 'XYYLIYLEYLDV',
+    INITIATE_BOTTLE_INSERT: 'BEB'
+}

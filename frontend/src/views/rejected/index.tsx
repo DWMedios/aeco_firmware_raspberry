@@ -9,6 +9,7 @@ import {
   MetaDataRejected,
   TextColorEnum,
 } from '../../interfaces'
+import { Command } from '../../utils/commands'
 
 import Button from '../../components/button'
 import ScreenLayout from '../../components/layout/screenLayout'
@@ -27,7 +28,7 @@ const Rejected = () => {
   const { sendCommand } = useWebSocket()
 
   useEffect(() => {
-    sendCommand('YLWDY')
+    sendCommand(Command.INITIAL_SETUP_LOCK_ALL)
   }, [])
 
   if (loading || error || !metas) {

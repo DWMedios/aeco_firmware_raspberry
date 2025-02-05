@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import useWebSocket from '../../hooks/useWebSocket'
 import { useNavigate } from 'react-router-dom'
 import { usePageData } from '../../hooks/usePageData'
+import { Command } from '../../utils/commands'
 import { MetaDataInsert } from '../../interfaces'
 import ScreenLayout from '../../components/layout/screenLayout'
 import useTranslate from '../../hooks/useTranslate'
@@ -24,7 +25,7 @@ const Insert = () => {
 
   useEffect(() => {
     const { success, message } = command
-    if (success && message === 'I') {
+    if (success && message === Command.COMANDO_REV) {
       navigation('/scanning')
     }
   }, [command])

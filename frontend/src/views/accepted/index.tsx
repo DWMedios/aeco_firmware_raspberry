@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-
 import {
   BackgroundButtonEnum,
   BorderRadiusEnum,
@@ -8,14 +7,15 @@ import {
   Packaging,
   TextColorEnum,
 } from '../../interfaces'
-
 import { usePageData } from '../../hooks/usePageData'
+import { LastPackings } from '../../utils/savePackaging'
+import { Command } from '../../utils/commands'
 
 import Button from '../../components/button'
 import ScreenLayout from '../../components/layout/screenLayout'
 import useWebSocket from '../../hooks/useWebSocket'
-import { LastPackings } from '../../utils/savePackaging'
 import useTranslate from '../../hooks/useTranslate'
+
 
 const Accepted = () => {
 
@@ -30,7 +30,7 @@ const Accepted = () => {
   const { sendCommand } = useWebSocket()
 
   useEffect(() => {
-    sendCommand('YLWDY')
+    sendCommand(Command.INITIAL_SETUP_LOCK_ALL);
   }, [])
 
   useEffect(() => {
@@ -74,7 +74,7 @@ const Accepted = () => {
           </div>
         </div>
         <Button
-          action={() => sendCommand('IBMUB')} //Antes teniamos el BEB lo cambie para probar
+          action={() => sendCommand(Command.INITIATE_BOTTLE_INSERT)} //Antes teniamos el BEB lo cambie para probar
           label={metas.buttonUp.label}
           url={metas.buttonUp.url}
           bgColor={
@@ -93,7 +93,7 @@ const Accepted = () => {
           }
         />
         <Button
-          action={() => sendCommand('XYDB')}
+          action={() => sendCommand(Command.FINISH_LOCK_THE_LID)}
           label={metas.buttonDown.label}
           url={metas.buttonDown.url}
           bgColor={
