@@ -1,5 +1,5 @@
 export const Command = {
-    COMANDO_REV: 'I',
+    COMANDO_REV: 'I', //Revisar
     REFUSED: 'J',
     GREEN_LED: 'L',
     RED_LED: 'T',

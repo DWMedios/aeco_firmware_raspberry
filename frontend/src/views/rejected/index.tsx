@@ -58,7 +58,7 @@ const Rejected = () => {
         />
 
         <Button
-          action={() => sendCommand('BEB')}
+          action={() => sendCommand(Command.INITIATE_BOTTLE_INSERT)}
           label={metas.buttonUp.label}
           url={metas.buttonUp.url}
           bgColor={

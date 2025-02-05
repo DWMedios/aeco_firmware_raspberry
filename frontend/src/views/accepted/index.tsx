@@ -73,10 +73,7 @@ const Accepted = () => {
           </div>
         </div>
         <Button
-          action={() => {
-            console.log('Enviando comando: INITIATE_BOTTLE_INSERT');
-            sendCommand(Command.INITIATE_BOTTLE_INSERT);
-          }} //Antes teniamos el BEB lo cambie para probar
+          action={() => sendCommand(Command.INITIATE_BOTTLE_INSERT)} //Antes teniamos el BEB lo cambie para probar
           label={metas.buttonUp.label}
           url={metas.buttonUp.url}
           bgColor={
