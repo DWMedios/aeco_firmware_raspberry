@@ -1,6 +1,6 @@
 import { usePageData } from '../../hooks/usePageData'
 
-import { MetaDataScanning } from '../../interfaces'
+import type { MetaDataScanning } from '../../interfaces'
 
 import ScreenLayout from '../../components/layout/screenLayout'
 import useWebSocket from '../../hooks/useWebSocket'
@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import BarcodeScanner from '../../components/barCodeScanner'
 import useTranslate from '../../hooks/useTranslate'
-import { Command } from '../../utils/commands'
+import { sendCommands } from '../../utils/commands'
 
 const Scanning = () => {
 
@@ -24,7 +24,7 @@ const Scanning = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      sendCommand(Command.REFUSED);
+      sendCommand(sendCommands.REJECTED);
       navigation('/unidentified')
     }, 10000)
 

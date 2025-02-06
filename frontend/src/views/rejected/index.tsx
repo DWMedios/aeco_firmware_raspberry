@@ -9,7 +9,7 @@ import {
   MetaDataRejected,
   TextColorEnum,
 } from '../../interfaces'
-import { Command } from '../../utils/commands'
+import { sendCommands } from '../../utils/commands'
 
 import Button from '../../components/button'
 import ScreenLayout from '../../components/layout/screenLayout'
@@ -28,7 +28,7 @@ const Rejected = () => {
   const { sendCommand } = useWebSocket()
 
   useEffect(() => {
-    sendCommand(Command.INITIAL_SETUP_LOCK_ALL)
+    sendCommand(sendCommands.INITIAL_SETUP_LOCK_ALL)
   }, [])
 
   if (loading || error || !metas) {
@@ -58,7 +58,7 @@ const Rejected = () => {
         />
 
         <Button
-          action={() => sendCommand(Command.INITIATE_BOTTLE_INSERT)}
+          action={() => sendCommand(sendCommands.INITIATE_BOTTLE_INSERT)}
           label={metas.buttonUp.label}
           url={metas.buttonUp.url}
           bgColor={

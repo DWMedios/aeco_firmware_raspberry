@@ -7,7 +7,7 @@ import {
   FontSizeEnum,
   MetaDataExample,
 } from '../../interfaces'
-import { Command } from '../../utils/commands'
+import { sendCommands } from '../../utils/commands'
 
 import Button from '../../components/button'
 import ScreenLayout from '../../components/layout/screenLayout'
@@ -54,7 +54,7 @@ const Example = () => {
         />
 
         <Button
-          action={() => sendCommand(Command.INITIATE_BOTTLE_INSERT)}
+          action={() => sendCommand(sendCommands.INITIATE_BOTTLE_INSERT)}
           label={metas.button.label}
           url={metas.button.url}
           fontSize={

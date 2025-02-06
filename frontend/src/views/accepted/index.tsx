@@ -9,7 +9,7 @@ import {
 } from '../../interfaces'
 import { usePageData } from '../../hooks/usePageData'
 import { LastPackings } from '../../utils/savePackaging'
-import { Command } from '../../utils/commands'
+import { sendCommands } from '../../utils/commands'
 
 import Button from '../../components/button'
 import ScreenLayout from '../../components/layout/screenLayout'
@@ -30,7 +30,7 @@ const Accepted = () => {
   const { sendCommand } = useWebSocket()
 
   useEffect(() => {
-    sendCommand(Command.INITIAL_SETUP_LOCK_ALL);
+    sendCommand(sendCommands.INITIAL_SETUP_LOCK_ALL);
   }, [])
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const Accepted = () => {
           </div>
         </div>
         <Button
-          action={() => sendCommand(Command.INITIATE_BOTTLE_INSERT)} //Antes teniamos el BEB lo cambie para probar
+          action={() => sendCommand(sendCommands.INITIATE_BOTTLE_INSERT)} //Antes teniamos el BEB lo cambie para probar
           label={metas.buttonUp.label}
           url={metas.buttonUp.url}
           bgColor={
@@ -92,7 +92,7 @@ const Accepted = () => {
           }
         />
         <Button
-          action={() =>  sendCommand(Command.FINISH_LOCK_THE_LID)}
+          action={() => sendCommand(sendCommands.FINISH_LOCK_THE_LID)}
           label={metas.buttonDown.label}
           url={metas.buttonDown.url}
           bgColor={

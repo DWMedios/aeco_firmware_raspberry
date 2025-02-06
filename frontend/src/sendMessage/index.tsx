@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import useWebSocket from '../hooks/useWebSocket'
+import { sendCommands } from '../utils/commands'
 
 const SendMessage = () => {
   const [mesages, SetMesages] = useState<Array<string>>([])
@@ -18,16 +19,16 @@ const SendMessage = () => {
   }, [command])
 
   const commands = [
-    'YLWDY',
-    'BEBJ',
-    'CYLILEYLD',
-    'XYYLIYLEYLDV',
-    'YLIYLEYL',
-    'BUS',
-    'US',
-    'T',
-    'U',
-    'L',
+    sendCommands.INITIAL_SETUP_LOCK_ALL,
+    sendCommands.INITIATE_BOTTLE_INSERT,
+    sendCommands.END_THE_READING_PROCESS,
+    sendCommands.FINISH_NO_READ_BOTTLE,
+    sendCommands.CLAIM_DONATION_RETURN,
+    sendCommands.ACCEPTED,
+    sendCommands.REJECTED_BOTTLE,
+    sendCommands.RED_LED,
+    sendCommands.BLUE_LED,
+    sendCommands.GREEN_LED,
   ]
 
   return (

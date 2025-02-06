@@ -10,7 +10,7 @@ import {
   MetaDataUnidentified,
   TextColorEnum,
 } from '../../interfaces'
-import { Command } from '../../utils/commands'
+import { sendCommands } from '../../utils/commands'
 
 import Button from '../../components/button'
 import ScreenLayout from '../../components/layout/screenLayout'
@@ -30,7 +30,7 @@ const Unidentified = () => {
   const { sendCommand } = useWebSocket()
 
   useEffect(() => {
-    sendCommand(Command.INITIAL_SETUP_LOCK_ALL)
+    sendCommand(sendCommands.INITIAL_SETUP_LOCK_ALL)
   }, [])
 
   const NextSteep = async () => {
@@ -43,12 +43,12 @@ const Unidentified = () => {
         synchronized: false,
       })
       if (saveMovement) {
-        sendCommand(Command.FINISH_LOCK_THE_LID)
+        sendCommand(sendCommands.FINISH_LOCK_THE_LID)
         navigation(metas!.buttonDown.url)
       }
     } else {
-      sendCommand(Command.FINISH_NO_READ_BOTTLE)
-      sendCommand(Command.INITIAL_SETUP_LOCK_ALL)
+      sendCommand(sendCommands.FINISH_NO_READ_BOTTLE)
+      sendCommand(sendCommands.INITIAL_SETUP_LOCK_ALL)
       navigation('/home')
     }
   }
@@ -80,7 +80,7 @@ const Unidentified = () => {
         />
 
         <Button
-          action={() => sendCommand(Command.INITIATE_BOTTLE_INSERT)}
+          action={() => sendCommand(sendCommands.INITIATE_BOTTLE_INSERT)}
           label={metas.buttonUp.label}
           url={metas.buttonUp.url}
           bgColor={
