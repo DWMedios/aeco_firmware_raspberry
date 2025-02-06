@@ -11,6 +11,7 @@ const LoadingOffline = ({ icon = 'loading' }: Icon) => {
 
   useEffect(() => {
     if (socketOn) sendCommand(Command.INITIAL_SETUP_LOCK_ALL)
+      console.log('Socket está activado, enviando el comando:', Command.INITIAL_SETUP_LOCK_ALL);
   }, [socketOn])
 
   useEffect(() => {

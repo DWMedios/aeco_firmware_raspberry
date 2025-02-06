@@ -48,7 +48,6 @@ const Accepted = () => {
       </div>
     )
   }
-
   return (
     <ScreenLayout image={metas.imgBg}>
       <div className="flex flex-col justify-center items-center h-screen select-none gap-16">
@@ -74,7 +73,10 @@ const Accepted = () => {
           </div>
         </div>
         <Button
-          action={() => sendCommand(Command.INITIATE_BOTTLE_INSERT)} //Antes teniamos el BEB lo cambie para probar
+          action={() => {
+            console.log('Enviando comando: INITIATE_BOTTLE_INSERT');
+            sendCommand(Command.INITIATE_BOTTLE_INSERT);
+          }} //Antes teniamos el BEB lo cambie para probar
           label={metas.buttonUp.label}
           url={metas.buttonUp.url}
           bgColor={
@@ -93,7 +95,7 @@ const Accepted = () => {
           }
         />
         <Button
-          action={() => sendCommand(Command.FINISH_LOCK_THE_LID)}
+          action={() =>  sendCommand(Command.FINISH_LOCK_THE_LID)}
           label={metas.buttonDown.label}
           url={metas.buttonDown.url}
           bgColor={
