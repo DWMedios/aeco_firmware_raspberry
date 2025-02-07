@@ -1,4 +1,4 @@
-import {
+import type {
   ArrayContainersConditions,
   ContainersConditions,
 } from '../../../interfaces'

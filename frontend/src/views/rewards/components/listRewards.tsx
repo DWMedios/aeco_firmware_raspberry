@@ -1,5 +1,5 @@
+import type { RewardCategoriesProps } from '../../../interfaces'
 import CardReward from '../../../components/cardReward'
-import { RewardCategoriesProps } from '../../../interfaces'
 
 const ListRewards = ({ categories }: RewardCategoriesProps) => {
   console.log('🚀 ~ ListRewards ~ rewards:', categories)

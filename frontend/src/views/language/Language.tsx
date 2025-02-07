@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { usePageData } from '../../hooks/usePageData'
-import useTranslate from '../../hooks/useTranslate'
-
-import {
+import type {
   BackgroundButtonEnum,
   BorderColorEnum,
   BorderRadiusEnum,
@@ -10,10 +8,10 @@ import {
   MetaDataLanguage,
   TextColorEnum,
 } from '../../interfaces'
-
 import BackButton from '../../components/backButton'
 import Button from '../../components/button'
 import ScreenLayout from '../../components/layout/screenLayout'
+import useTranslate from '../../hooks/useTranslate'
 
 function Language() {
   const { t, changeLanguage} = useTranslate()

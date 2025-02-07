@@ -1,7 +1,7 @@
 import { useState } from 'react'
+import type { RewardsProps } from '../../../interfaces'
 import CardReward from '../../../components/cardReward'
 import PaginationButtons from '../../../components/paginationButtons'
-import { RewardsProps } from '../../../interfaces'
 
 const ListDonatives = ({ rewards }: RewardsProps) => {
   const [currentPage, setCurrentPage] = useState(0)

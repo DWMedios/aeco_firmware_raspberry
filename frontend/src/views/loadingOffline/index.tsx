@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Icon } from '../../interfaces'
+import type { Icon } from '../../interfaces'
+import { sendCommands } from '../../utils/commands'
 import ScreenLayout from '../../components/layout/screenLayout'
 import useWebSocket from '../../hooks/useWebSocket'
 
@@ -9,7 +10,7 @@ const LoadingOffline = ({ icon = 'loading' }: Icon) => {
   const { sendCommand, socketOn } = useWebSocket()
 
   useEffect(() => {
-    if (socketOn) sendCommand('YLWDY')
+    if (socketOn) sendCommand(sendCommands.INITIAL_SETUP_LOCK_ALL)
   }, [socketOn])
 
   useEffect(() => {

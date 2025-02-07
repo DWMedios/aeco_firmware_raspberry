@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import type { Rewards } from '../../interfaces'
 import BackButton from '../../components/backButton'
 import CardReward from '../../components/cardReward'
 import ScreenLayout from '../../components/layout/screenLayout'
-import { useEffect, useState } from 'react'
 import WebApiAeco from '../../api/webApiAeco'
-import { Rewards } from '../../interfaces'
 import useTranslate from '../../hooks/useTranslate'
 
 const Services = () => {

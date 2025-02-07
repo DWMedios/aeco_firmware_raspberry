@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { usePageData } from '../../hooks/usePageData'
 import type { MetaDataHome } from '../../interfaces'
-import {
+import type {
   BackgroundButtonEnum,
   BorderRadiusEnum,
   FontSizeEnum,
@@ -77,6 +77,5 @@ function Home() {
     </ScreenLayout>
   )
 }
-
 
 export default Home

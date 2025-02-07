@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import WebApiAeco from '../../api/webApiAeco'
 import { useNavigate } from 'react-router-dom'
+import WebApiAeco from '../../api/webApiAeco'
 import useWebSocket from '../../hooks/useWebSocket'
 import { SavePackaging } from '../../utils/savePackaging'
+import { sendCommands } from '../../utils/commands'
 
 const BarcodeScanner = () => {
   const navigation = useNavigate()
@@ -31,10 +32,10 @@ const BarcodeScanner = () => {
         name: response.name,
         packaging: response.capacity.packaging,
       })
-      sendCommand('BUS')
+      sendCommand(sendCommands.ACCEPTED)
       navigation('/accepted')
     } catch (error) {
-      sendCommand('J')
+      sendCommand(sendCommands.REJECTED)
       navigation('/rejected')
     } finally {
       setBarcode('')

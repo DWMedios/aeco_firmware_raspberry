@@ -1,16 +1,15 @@
 import { useEffect } from 'react'
-import { GetPackagings, SavePreoccess } from '../../utils/savePackaging'
 import { useNavigate } from 'react-router-dom'
+import { GetPackagings, SavePreoccess } from '../../utils/savePackaging'
 import { usePageData } from '../../hooks/usePageData'
-
-import {
+import type {
   BackgroundButtonEnum,
   BorderRadiusEnum,
   FontSizeEnum,
   MetaDataUnidentified,
   TextColorEnum,
 } from '../../interfaces'
-
+import { sendCommands } from '../../utils/commands'
 import Button from '../../components/button'
 import ScreenLayout from '../../components/layout/screenLayout'
 import useWebSocket from '../../hooks/useWebSocket'
@@ -29,7 +28,7 @@ const Unidentified = () => {
   const { sendCommand } = useWebSocket()
 
   useEffect(() => {
-    sendCommand('YLWDY')
+    sendCommand(sendCommands.INITIAL_SETUP_LOCK_ALL)
   }, [])
 
   const NextSteep = async () => {
@@ -42,12 +41,12 @@ const Unidentified = () => {
         synchronized: false,
       })
       if (saveMovement) {
-        sendCommand('XYDB')
+        sendCommand(sendCommands.FINISH_LOCK_THE_LID)
         navigation(metas!.buttonDown.url)
       }
     } else {
-      sendCommand('XYYLIYLEYLDV')
-      sendCommand('YLWDY')
+      sendCommand(sendCommands.FINISH_NO_READ_BOTTLE)
+      sendCommand(sendCommands.INITIAL_SETUP_LOCK_ALL)
       navigation('/home')
     }
   }
@@ -79,7 +78,7 @@ const Unidentified = () => {
         />
 
         <Button
-          action={() => sendCommand('BEB')}
+          action={() => sendCommand(sendCommands.INITIATE_BOTTLE_INSERT)}
           label={metas.buttonUp.label}
           url={metas.buttonUp.url}
           bgColor={
@@ -101,7 +100,7 @@ const Unidentified = () => {
         <Button
           action={() => NextSteep()}
           label={metas.buttonDown.label}
-          // url={metas.buttonDown.url}
+          url={metas.buttonDown.url}
           bgColor={
             BackgroundButtonEnum[
               metas.buttonDown.bgColor as keyof typeof BackgroundButtonEnum

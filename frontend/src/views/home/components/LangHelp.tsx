@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom'
-
 import { usePageData } from '../../../hooks/usePageData'
-
 import { MetaDataHome } from '../../../interfaces'
 
 const LangHelp = () => {

@@ -1,7 +1,5 @@
 import { usePageData } from '../../hooks/usePageData'
-
-import { MetaDataHelp } from '../../interfaces'
-
+import type { MetaDataHelp } from '../../interfaces'
 import BackButton from '../../components/backButton'
 import QRCodeComponent from '../../components/qrCode'
 import ScreenLayout from '../../components/layout/screenLayout'

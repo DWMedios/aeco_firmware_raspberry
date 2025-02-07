@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-
-import {
+import type {
   BackgroundButtonEnum,
   BorderRadiusEnum,
   FontSizeEnum,
@@ -8,14 +7,15 @@ import {
   Packaging,
   TextColorEnum,
 } from '../../interfaces'
-
 import { usePageData } from '../../hooks/usePageData'
+import { LastPackings } from '../../utils/savePackaging'
+import { sendCommands } from '../../utils/commands'
 
 import Button from '../../components/button'
 import ScreenLayout from '../../components/layout/screenLayout'
 import useWebSocket from '../../hooks/useWebSocket'
-import { LastPackings } from '../../utils/savePackaging'
 import useTranslate from '../../hooks/useTranslate'
+
 
 const Accepted = () => {
 
@@ -30,7 +30,7 @@ const Accepted = () => {
   const { sendCommand } = useWebSocket()
 
   useEffect(() => {
-    sendCommand('YLWDY')
+    sendCommand(sendCommands.INITIAL_SETUP_LOCK_ALL);
   }, [])
 
   useEffect(() => {
@@ -48,7 +48,6 @@ const Accepted = () => {
       </div>
     )
   }
-
   return (
     <ScreenLayout image={metas.imgBg}>
       <div className="flex flex-col justify-center items-center h-screen select-none gap-16">
@@ -74,7 +73,7 @@ const Accepted = () => {
           </div>
         </div>
         <Button
-          action={() => sendCommand('IBMUB')} //Antes teniamos el BEB lo cambie para probar
+          action={() => sendCommand(sendCommands.INITIATE_BOTTLE_INSERT)}
           label={metas.buttonUp.label}
           url={metas.buttonUp.url}
           bgColor={
@@ -93,7 +92,7 @@ const Accepted = () => {
           }
         />
         <Button
-          action={() => sendCommand('XYDB')}
+          action={() => sendCommand(sendCommands.FINISH_LOCK_THE_LID)}
           label={metas.buttonDown.label}
           url={metas.buttonDown.url}
           bgColor={

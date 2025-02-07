@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { usePageData } from '../../hooks/usePageData'
-
-import {
+import type {
   BackgroundButtonEnum,
   BorderColorEnum,
   BorderRadiusEnum,
@@ -9,7 +8,7 @@ import {
   MetaDataRejected,
   TextColorEnum,
 } from '../../interfaces'
-
+import { sendCommands } from '../../utils/commands'
 import Button from '../../components/button'
 import ScreenLayout from '../../components/layout/screenLayout'
 import useWebSocket from '../../hooks/useWebSocket'
@@ -27,7 +26,7 @@ const Rejected = () => {
   const { sendCommand } = useWebSocket()
 
   useEffect(() => {
-    sendCommand('YLWDY')
+    sendCommand(sendCommands.INITIAL_SETUP_LOCK_ALL)
   }, [])
 
   if (loading || error || !metas) {
@@ -57,7 +56,7 @@ const Rejected = () => {
         />
 
         <Button
-          action={() => sendCommand('BEB')}
+          action={() => sendCommand(sendCommands.INITIATE_BOTTLE_INSERT)}
           label={metas.buttonUp.label}
           url={metas.buttonUp.url}
           bgColor={
