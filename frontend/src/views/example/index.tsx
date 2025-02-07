@@ -1,6 +1,6 @@
 import { usePageData } from '../../hooks/usePageData'
 
-import {
+import type {
   BackgroundButtonEnum,
   BorderColorEnum,
   BorderRadiusEnum,
@@ -11,8 +11,8 @@ import { sendCommands } from '../../utils/commands'
 
 import Button from '../../components/button'
 import ScreenLayout from '../../components/layout/screenLayout'
-import useWebSocket from '../../hooks/useWebSocket'
 import BackButton from '../../components/backButton'
+import useWebSocket from '../../hooks/useWebSocket'
 import useTranslate from '../../hooks/useTranslate'
 
 const Example = () => {

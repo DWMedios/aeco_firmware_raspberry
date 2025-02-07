@@ -1,5 +1,4 @@
-import { TextColorEnum } from '../../interfaces'
-
+import type { TextColorEnum } from '../../interfaces'
 import Button from '../../components/button'
 import QRCodeComponent from '../../components/qrCode'
 import ScreenLayout from '../../components/layout/screenLayout'

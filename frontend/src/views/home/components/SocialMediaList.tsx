@@ -1,6 +1,5 @@
-import { MediasProps, SocialMedia } from '../../../interfaces'
-
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa6'
+import type { MediasProps, SocialMedia } from '../../../interfaces'
 
 const socialMediaList: SocialMedia[] = [
   { name: 'Facebook', icon: <FaFacebook /> },

@@ -1,4 +1,3 @@
-// src/components/CurrentTime.tsx
 import { useEffect, useState } from 'react'
 
 const CurrentTime = () => {

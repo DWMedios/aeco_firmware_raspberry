@@ -1,12 +1,10 @@
-import { usePageData } from '../../hooks/usePageData'
-
-import type { MetaDataScanning } from '../../interfaces'
-
-import ScreenLayout from '../../components/layout/screenLayout'
-import useWebSocket from '../../hooks/useWebSocket'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { usePageData } from '../../hooks/usePageData'
+import type { MetaDataScanning } from '../../interfaces'
+import ScreenLayout from '../../components/layout/screenLayout'
 import BarcodeScanner from '../../components/barCodeScanner'
+import useWebSocket from '../../hooks/useWebSocket'
 import useTranslate from '../../hooks/useTranslate'
 import { sendCommands } from '../../utils/commands'
 

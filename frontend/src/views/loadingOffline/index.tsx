@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Icon } from '../../interfaces'
+import type { Icon } from '../../interfaces'
 import { sendCommands } from '../../utils/commands'
 import ScreenLayout from '../../components/layout/screenLayout'
 import useWebSocket from '../../hooks/useWebSocket'

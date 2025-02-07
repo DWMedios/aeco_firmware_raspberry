@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import {
+import type {
   BackgroundButtonEnum,
   BorderRadiusEnum,
   FontSizeEnum,
@@ -73,7 +73,7 @@ const Accepted = () => {
           </div>
         </div>
         <Button
-          action={() => sendCommand(sendCommands.INITIATE_BOTTLE_INSERT)} //Antes teniamos el BEB lo cambie para probar
+          action={() => sendCommand(sendCommands.INITIATE_BOTTLE_INSERT)}
           label={metas.buttonUp.label}
           url={metas.buttonUp.url}
           bgColor={

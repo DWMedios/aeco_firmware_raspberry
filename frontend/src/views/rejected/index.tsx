@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { usePageData } from '../../hooks/usePageData'
-
-import {
+import type {
   BackgroundButtonEnum,
   BorderColorEnum,
   BorderRadiusEnum,
@@ -10,7 +9,6 @@ import {
   TextColorEnum,
 } from '../../interfaces'
 import { sendCommands } from '../../utils/commands'
-
 import Button from '../../components/button'
 import ScreenLayout from '../../components/layout/screenLayout'
 import useWebSocket from '../../hooks/useWebSocket'

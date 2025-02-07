@@ -9,9 +9,9 @@ function Service() {
     const qrCodeUrl = 'https://www.youtube.com/'
 
     return (
-        <ScreenLayout image="../../public/images/backgroundAccepted.png" timerInitialTime={30}>
-            <div className="text-center h-screen flex flex-col justify-center items-center select-none gap-11">
-                <BackButton url="/home" />
+    <ScreenLayout image="../../public/images/backgroundAccepted.png" timerInitialTime={30}>
+        <div className="text-center h-screen flex flex-col justify-center items-center select-none gap-11">
+            <BackButton url="/home" />
                 <p className="text-4xl normal-case max-w-[500px] mb-5 gap-4">
                     {t('externalService.textQR')} <br />
                     {t('externalService.textQR2')} <br />
@@ -22,8 +22,8 @@ function Service() {
                 <p className="text-4xl nomrmal-case max-w-[300px] pt-[3.75rem]">
                     {t('help.textDown')}
                 </p>
-            </div>
-        </ScreenLayout>
+        </div>
+    </ScreenLayout>
     )
 }
 

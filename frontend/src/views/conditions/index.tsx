@@ -1,6 +1,6 @@
 import { usePageData } from '../../hooks/usePageData'
 
-import {
+import type {
   BackgroundButtonEnum,
   BorderColorEnum,
   BorderRadiusEnum,

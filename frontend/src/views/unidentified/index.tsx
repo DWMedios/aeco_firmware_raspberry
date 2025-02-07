@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
-import { GetPackagings, SavePreoccess } from '../../utils/savePackaging'
 import { useNavigate } from 'react-router-dom'
+import { GetPackagings, SavePreoccess } from '../../utils/savePackaging'
 import { usePageData } from '../../hooks/usePageData'
-
-import {
+import type {
   BackgroundButtonEnum,
   BorderRadiusEnum,
   FontSizeEnum,
@@ -11,7 +10,6 @@ import {
   TextColorEnum,
 } from '../../interfaces'
 import { sendCommands } from '../../utils/commands'
-
 import Button from '../../components/button'
 import ScreenLayout from '../../components/layout/screenLayout'
 import useWebSocket from '../../hooks/useWebSocket'
@@ -102,7 +100,7 @@ const Unidentified = () => {
         <Button
           action={() => NextSteep()}
           label={metas.buttonDown.label}
-          // url={metas.buttonDown.url}
+          url={metas.buttonDown.url}
           bgColor={
             BackgroundButtonEnum[
               metas.buttonDown.bgColor as keyof typeof BackgroundButtonEnum

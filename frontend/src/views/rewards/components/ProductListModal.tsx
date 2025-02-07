@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { GetPackagings } from '../../../utils/savePackaging'
-import { Packagings } from '../../../interfaces'
+import type { Packagings } from '../../../interfaces'
 
 const ProductListModal = () => {
   const [products, setProducts] = useState<Packagings | null>( null )
