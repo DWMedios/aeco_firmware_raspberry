@@ -26,6 +26,10 @@ class WebApiAeco {
     return WebApi.ApisType({ url: `/rewards?reward_category=${id}`, method: 'GET' })
   }
 
+  static getPages() {
+    return WebApi.ApisType({ url: '/pages', method: 'GET' })
+  }
+
 } 
 
 export default WebApiAeco

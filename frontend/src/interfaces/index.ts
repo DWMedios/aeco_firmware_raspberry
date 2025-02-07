@@ -159,6 +159,7 @@ export interface TicketButtonInterface {
   imgClass?: string
   textClass?: string
   url: string
+  disabled?: boolean
 }
 
 export interface QRCodeInterface {
