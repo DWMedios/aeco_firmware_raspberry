@@ -1,33 +1,14 @@
-import { useEffect, useState } from 'react';
+import WebApiAeco from '../api/webApiAeco';
+import { setSessionStorage } from '../utils/manageStorage';
 
-interface PaperStatusResponse {
-  hasPaper: boolean;
-}
+const savePaperStatus = async () => {
 
-const usePaperStatus = (): boolean => {
-  const [hasPaper, setHasPaper] = useState<boolean>(false);
+      try {
+        await WebApiAeco.getPapel();
+        setSessionStorage('paperStatus', 'true'); 
+      } catch (error) {
+        setSessionStorage("paperStatus", "false")
+      }
+    };
 
-  useEffect(() => {
-    // Primero, verificamos en sessionStorage si ya hay información
-    const storedStatus = sessionStorage.getItem('hasPaper');
-    if (storedStatus !== null) {
-      setHasPaper(JSON.parse(storedStatus));
-    } else {
-      // Si no hay información, llamamos a la API
-      fetch('https://api.api-onepiece.com/v2/sagas/en') // Aquí la URL de tu API
-        .then((response) => response.json())
-        .then((data: PaperStatusResponse) => { // Aquí tipamos la respuesta de la API
-          const status = data.hasPaper;
-          setHasPaper(status);
-          sessionStorage.setItem('hasPaper', JSON.stringify(status));
-        })
-        .catch((error) => {
-          console.error('Error fetching paper status:', error);
-        });
-    }
-  }, []);
-
-  return hasPaper;
-};
-
-export default usePaperStatus;
+export default savePaperStatus;
